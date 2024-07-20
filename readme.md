@@ -10,6 +10,9 @@
 - `echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bash_profile`
 - `echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc`
 - `echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.<<seu interpretador (.zshrc, .bashrc ...>>`
+# Configurando parte 2
+- `sudo /opt/mssql/bin/mssql-conf set sqlagent.enabled true`
+- `sudo systemctl restart mssql-server`
 ## Utilizando
 - `sqlcmd -S localhost -U <user> -P <suaSenha>`
 - Pode também omitir a senha, ficando: `sqlcmd -S localhost -U <user>`;
@@ -18,3 +21,6 @@
 `Sqlcmd: Error: Microsoft ODBC Driver 18 for SQL Server : SSL Provider: [error:0A000086:SSL routines::certificate verify failed:self-signed certificate].`
 `Sqlcmd: Error: Microsoft ODBC Driver 18 for SQL Server : Client unable to establish connection. For solutions related to encryption errors, see https://go.microsoft.com/fwlink/?linkid=2226722.`
 - Remova a encriptação: `sqlcmd -No -S localhost -U <user>`
+### Criando um Database
+- `localhost -S localhost -U <user> -Q <Query>`
+- Como exemplo: <Query> = 'CREATE DATABASE SampleDB'
