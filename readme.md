@@ -24,3 +24,11 @@
 ### Criando um Database
 - `localhost -S localhost -U <user> -Q <Query>`
 - Como exemplo: <Query> = 'CREATE DATABASE SampleDB'
+
+# Configurações Adicionais
+## Mudar a senha
+- Entre no console sqlcmd (`sqlcmd -S localhost -P "suaSenha" -No`);
+- utilize o comando `sp_password @new='nova_senha',@loginame='nome_da_conta'` e em seguida: `go`;
+- Para sair do console, aplique: `exit`
+*ATENÇÃO para @LOGINAME, não é LOGIN + NAME a justaposição dessas palavras e sim LOGIN + AME. Pode 
+soar estranho, mas é um erro muito comum de acontecer, então escreva `@loginame` e não `@loginname`.*
